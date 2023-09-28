@@ -1,15 +1,14 @@
 <script>
-import Menubar from "../../shared/components/menubar.component.vue";
 
 export default {
   name: "chef-home",
-  components: { Menubar }
+  components: {  }
 };
 
 </script>
 
 <template>
-  <Menubar></Menubar>
+
 </template>
 
 <style scoped>
