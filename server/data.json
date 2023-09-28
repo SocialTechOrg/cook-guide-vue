@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Spaghetti a la bolognesa",
-      "author": "Chef Juan Pérez",
+      "author": "3",
       "image": "https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg",
       "ingredients": [
         "300g de carne molida de res",
@@ -20,7 +20,7 @@
     {
       "id": "2",
       "name": "Ensalada César",
-      "author": "Chef María Rodríguez",
+      "author": "5",
       "image": "https://cdn.kiwilimon.com/brightcove/6506/6506.jpg",
       "ingredients": [
         "2 pechugas de pollo a la parrilla",
@@ -36,7 +36,7 @@
     {
       "id": "3",
       "name": "Sopa de tomate",
-      "author": "Chef Ana López",
+      "author": "3",
       "image": "https://eci.contebio.com/material/aptc/images/aptc/2187222/sopa-de-tomate-con-queso-feta-y-berberechos_0.jpg",
       "ingredients": [
         "1 kg de tomates maduros",
@@ -54,7 +54,7 @@
     {
       "id": "4",
       "name": "Pizza Margarita",
-      "author": "Chef Carlos González",
+      "author": "5",
       "image": "https://www.annarecetasfaciles.com/files/pizza-margarita-1-scaled.jpg",
       "ingredients": [
         "Masa de pizza",
@@ -71,7 +71,7 @@
     {
       "id": "5",
       "name": "Sushi de salmón",
-      "author": "Chef David Sato",
+      "author": "3",
       "image": "https://www.afuegolento.com/img_db/timthumb.php?src=img_db/interviews/2020/08/interview-5f3e7f91184a6.jpg&w=2000&z=1&q=70",
       "ingredients": [
         "Arroz para sushi",
@@ -91,7 +91,7 @@
     {
       "id": "6",
       "name": "Hamburguesa clásica",
-      "author": "Chef Luis Mendoza",
+      "author": "5",
       "image": "https://t1.uc.ltmcdn.com/es/posts/9/4/4/hamburguesa_clasica_53449_0_600.webp",
       "ingredients": [
         "300g de carne de res molida",
@@ -111,7 +111,7 @@
     {
       "id": "7",
       "name": "Tacos de pollo",
-      "author": "Chef Laura Martínez",
+      "author": "3",
       "image": "https://assets.unileversolutions.com/recipes-v2/234572.jpg",
       "ingredients": [
         "Pechugas de pollo",
@@ -130,7 +130,7 @@
     {
       "id": "8",
       "name": "Pastel de chocolate",
-      "author": "Chef Isabel Gómez",
+      "author": "5",
       "image": "https://i.blogs.es/27bdbe/tarta-chocolate-vino1/840_560.jpg",
       "ingredients": [
         "200g de chocolate negro",
@@ -148,7 +148,7 @@
     {
       "id": "9",
       "name": "Enchiladas de pollo",
-      "author": "Chef Miguel Sánchez",
+      "author": "3",
       "image": "https://images-gmi-pmc.edge-generalmills.com/0f58d310-021e-4175-b1b6-d73be26bac7e.jpg",
       "ingredients": [
         "Tortillas de maíz",
@@ -166,7 +166,7 @@
     {
       "id": "10",
       "name": "Smoothie de frutas",
-      "author": "Chef Sofía Torres",
+      "author": "5",
       "image": "https://claudia.abril.com.br/wp-content/uploads/2020/02/thinkstockphotos-839497302-1.jpg?quality=85&strip=info",
       "ingredients": [
         "Plátano",
