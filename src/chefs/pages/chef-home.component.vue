@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      recipes: [], // Almacenará las recetas obtenidas del servidor JSON
+      recipes: [],
       addvisible: false,
       editvisible: false,
       recipeToEdit: null,
@@ -91,18 +91,19 @@ export default {
     },
   },
   mounted() {
+    localStorage.setItem('userId', "5");
+
+    this.userId = localStorage.getItem('userId');
+
     axios.get('http://localhost:3000/recipes')
         .then(response => {
-          this.recipes = response.data;
+          this.recipes = response.data.filter(recipe => recipe.author === this.userId);
         })
         .catch(error => {
           console.error('Error al obtener las recetas:', error);
         });
   },
 };
-
-const addvisible = ref(false);
-const editvisible = ref(false);
 
 </script>
 
@@ -142,6 +143,7 @@ const editvisible = ref(false);
   align-content: center;
   justify-content: center;
   text-align:center;
+  height: 100%;
 }
 
 .p-card{
