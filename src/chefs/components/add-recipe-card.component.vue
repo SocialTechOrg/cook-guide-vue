@@ -54,7 +54,7 @@ export default {
         id: this.recipe.id,
         name: this.recipe.name,
         author: localStorage.getItem('userId'),
-        image: this.recipe.image,S
+        image: this.recipe.image,
         ingredients: this.recipe.ingredients.split(','),
         preparation: this.recipe.preparation,
         time: this.recipe.time,

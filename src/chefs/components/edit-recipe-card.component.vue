@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     editRecipe() {
-      if (!this.recipe.name || S !this.recipe.image) {
+      if (!this.recipe.name || !this.recipe.image) {
         alert("Por favor, complete los campos obligatorios.");
         return;
       }

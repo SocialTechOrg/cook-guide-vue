@@ -93,7 +93,7 @@ export default {
   mounted() {
     localStorage.setItem('userId', "5");
 
-    this.userId = lS
+    this.userId = localStorage.getItem('userId');
 
     axios.get('http://localhost:3000/recipes')
         .then(response => {
