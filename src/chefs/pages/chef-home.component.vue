@@ -3,12 +3,20 @@
   <div class="chef-homeview-container">
     <div class="header">
       <h1 class="title">Mis recetas</h1>
-      <pv-button icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
+      <pv-button icon="pi pi-plus" severity="warning" rounded @click="addvisible = true" />
 
       <template>
         <div class="card flex justify-content-center">
-          <pv-dialog v-model:visible="visible" modal header="Agregar Receta" :style="{ width: '50vw' }">
+          <pv-dialog v-model:visible="addvisible" modal header="Agregar Receta" :style="{ width: '50vw' }">
             <add-recipe-card></add-recipe-card>
+          </pv-dialog>
+        </div>
+      </template>
+
+      <template>
+        <div class="card flex justify-content-center">
+          <pv-dialog v-model:visible="editvisible" modal header="Editar Receta" :style="{ width: '50vw' }">
+            <edit-recipe-card :recipe="recipeToEdit"></edit-recipe-card>
           </pv-dialog>
         </div>
       </template>
@@ -44,15 +52,19 @@
 import { ref } from "vue";
 import axios from 'axios';
 import AddRecipeCard from "@/chefs/components/add-recipe-card.component.vue";
+import EditRecipeCard from "@/chefs/components/edit-recipe-card.component.vue";
 export default {
   name: 'chef-home',
   components: {
-    AddRecipeCard
+    AddRecipeCard,
+    EditRecipeCard
   },
   data() {
     return {
       recipes: [], // Almacenará las recetas obtenidas del servidor JSON
-      visible: false
+      addvisible: false,
+      editvisible: false,
+      recipeToEdit: null,
     };
   },
   methods: {
@@ -70,9 +82,11 @@ export default {
             });
       }
     },
-    editRecipe(recipe){
-
-    }
+    editRecipe(recipe) {
+      recipe.ingredients = recipe.ingredients.join(',');
+      this.recipeToEdit = recipe;
+      this.editvisible = true;
+    },
   },
   mounted() {
     axios.get('http://localhost:3000/recipes')
@@ -115,9 +129,9 @@ const visible = ref(false);
   width: 100%;
   height:100%;
   padding: 40px;
-  display: flex; /* Muestra las tarjetas en línea */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan cuando no quepan en el contenedor */
-  justify-content: center; /* Centra las tarjetas horizontalmente */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card{
@@ -153,32 +167,6 @@ img{
 .p-button:focus {
   outline: none;
   box-shadow: none;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-wrapper) {
-  border-right: 10px solid var(--surface-ground);
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar) {
-  background-color: var(--primary-300);
-  opacity: 1;
-  transition: background-color 0.3s;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover) {
-  background-color: var(--primary-400);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-wrapper) {
-  border-right: 10px solid var(--surface-50);
-  border-bottom: 10px solid var(--surface-50);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-bar) {
-  background-color: var(--surface-300);
-  border-radius: 0;
-  opacity: 1;
-  transition: background-color 0.3s;
 }
 
 </style>
