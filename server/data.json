@@ -195,9 +195,19 @@
       "birthday": "1980-01-01",
       "gender": "Masculino",
       "diet": "Omnívoro",
-      "allergies": ["almendras", "mariscos"],
-      "preferences": ["pescado", "pollo", "verduras"],
-      "needs": ["pollo", "verduras"],
+      "allergies": [
+        "almendras",
+        "mariscos"
+      ],
+      "preferences": [
+        "pescado",
+        "pollo",
+        "verduras"
+      ],
+      "needs": [
+        "pollo",
+        "verduras"
+      ],
       "height": "1.80",
       "weight": "80"
     },
@@ -214,9 +224,19 @@
       "birthday": "1995-03-15",
       "gender": "Femenino",
       "diet": "Vegetariana",
-      "allergies": ["Maní", "Soya"],
-      "preferences": ["Vegetales", "Tofu", "Frutas"],
-      "needs": ["Tofu", "Frutas"],
+      "allergies": [
+        "Maní",
+        "Soya"
+      ],
+      "preferences": [
+        "Vegetales",
+        "Tofu",
+        "Frutas"
+      ],
+      "needs": [
+        "Tofu",
+        "Frutas"
+      ],
       "height": "1.65",
       "weight": "55"
     },
@@ -234,8 +254,16 @@
       "gender": "Masculino",
       "diet": "Omnívoro",
       "allergies": [],
-      "preferences": ["Carne", "Vegetales", "Pasta"],
-      "needs": ["Carne", "Vegetales", "Pasta"],
+      "preferences": [
+        "Carne",
+        "Vegetales",
+        "Pasta"
+      ],
+      "needs": [
+        "Carne",
+        "Vegetales",
+        "Pasta"
+      ],
       "height": "1.85",
       "weight": "90"
     },
@@ -252,9 +280,21 @@
       "birthday": "1998-06-10",
       "gender": "Femenino",
       "diet": "Vegana",
-      "allergies": ["Lácteos", "Huevos", "Nueces"],
-      "preferences": ["Tofu", "Quinua", "Kale"],
-      "needs": ["Tofu", "Quinua", "Kale"],
+      "allergies": [
+        "Lácteos",
+        "Huevos",
+        "Nueces"
+      ],
+      "preferences": [
+        "Tofu",
+        "Quinua",
+        "Kale"
+      ],
+      "needs": [
+        "Tofu",
+        "Quinua",
+        "Kale"
+      ],
       "height": "1.70",
       "weight": "60"
     },
@@ -271,9 +311,19 @@
       "birthday": "1982-09-05",
       "gender": "Masculino",
       "diet": "Omnívoro",
-      "allergies": ["Mariscos"],
-      "preferences": ["Salmón", "Palta", "Espinaca"],
-      "needs": ["Salmón", "Palta", "Espinaca"],
+      "allergies": [
+        "Mariscos"
+      ],
+      "preferences": [
+        "Salmón",
+        "Palta",
+        "Espinaca"
+      ],
+      "needs": [
+        "Salmón",
+        "Palta",
+        "Espinaca"
+      ],
       "height": "1.78",
       "weight": "75"
     }

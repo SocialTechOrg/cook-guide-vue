@@ -13,7 +13,10 @@ import 'primeicons/primeicons.css';
 //Add Components
 import Button from 'primevue/button';
 import Card from 'primevue/card';
-
+import Dialog from 'primevue/dialog';
+import InlineMessage from 'primevue/inlinemessage';
+import InputText from "primevue/inputtext";
+import Textarea from "primevue/textarea";
 
 const app = createApp(App)
 
@@ -22,5 +25,9 @@ createApp(App)
     .use(router)
     .component('pv-button', Button)
     .component('pv-card', Card)
+    .component('pv-dialog', Dialog)
+    .component('pv-inline-message', InlineMessage)
+    .component('pv-input-text', InputText)
+    .component('pv-textarea', Textarea)
     .use(router).mount('#app')
 
