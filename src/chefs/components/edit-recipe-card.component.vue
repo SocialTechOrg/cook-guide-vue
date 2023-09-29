@@ -5,9 +5,6 @@
         <pv-input-text id="name" placeholder="Nombre" v-model="recipe.name" required/>
       </div>
       <div class="form-group">
-        <pv-input-text id="author" placeholder="Autor" v-model="recipe.author" required/>
-      </div>
-      <div class="form-group">
         <pv-input-text id="image" placeholder="URL de imagen" v-model="recipe.image" required/>
       </div>
       <div class="form-group">
@@ -42,14 +39,14 @@ export default {
   },
   methods: {
     editRecipe() {
-      if (!this.recipe.name || !this.recipe.author || !this.recipe.image) {
+      if (!this.recipe.name || S !this.recipe.image) {
         alert("Por favor, complete los campos obligatorios.");
         return;
       }
       const dataRecipe = {
         id: this.recipe.id,
         name: this.recipe.name,
-        author: this.recipe.author,
+        author: localStorage.getItem('userId'),
         image: this.recipe.image,
         ingredients: this.recipe.ingredients.split(','),
         preparation: this.recipe.preparation,
