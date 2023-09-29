@@ -3,7 +3,7 @@
   <div class="chef-homeview-container">
     <div class="header">
       <h1 class="title">Mis recetas</h1>
-      <pv-button icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
+      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
 
       <template>
         <div class="card flex justify-content-center">
@@ -51,7 +51,7 @@ export default {
   },
   data() {
     return {
-      recipes: [], // Almacenará las recetas obtenidas del servidor JSON
+      recipes: [],
       visible: false
     };
   },
@@ -115,9 +115,9 @@ const visible = ref(false);
   width: 100%;
   height:100%;
   padding: 40px;
-  display: flex; /* Muestra las tarjetas en línea */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan cuando no quepan en el contenedor */
-  justify-content: center; /* Centra las tarjetas horizontalmente */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card{
@@ -143,42 +143,24 @@ img{
   justify-content: center;
 }
 
+.add-button{
+  margin-left: 20px;
+  align-self: center;
+  justify-self: center;
+  background-color: #FC4E4E;
+  border-color: #FC4E4E;
+  color: white;
+}
 .custom-button{
   background-color: #E06B43;
   border-color: #E06B43;
   border-radius: 20px;
 }
 
-
 .p-button:focus {
   outline: none;
   box-shadow: none;
 }
 
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-wrapper) {
-  border-right: 10px solid var(--surface-ground);
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar) {
-  background-color: var(--primary-300);
-  opacity: 1;
-  transition: background-color 0.3s;
-}
-
-::v-deep(.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover) {
-  background-color: var(--primary-400);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-wrapper) {
-  border-right: 10px solid var(--surface-50);
-  border-bottom: 10px solid var(--surface-50);
-}
-
-::v-deep(.p-scrollpanel.custombar2 .p-scrollpanel-bar) {
-  background-color: var(--surface-300);
-  border-radius: 0;
-  opacity: 1;
-  transition: background-color 0.3s;
-}
 
 </style>
