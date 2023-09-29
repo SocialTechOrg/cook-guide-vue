@@ -16,10 +16,14 @@ body{
   padding: 0;
   margin: 0;
 }
+
 #app{
   width: 100%;
   height: 100vh;
   padding: 0;
   margin: 0;
+  display:flex;
+  flex-direction: row;
 }
+
 </style>

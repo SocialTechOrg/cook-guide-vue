@@ -59,6 +59,7 @@
     box-shadow: 0px 0px 10px 0px lightgray;
     padding-left: 10px;
     padding-right:10px;
+    position:fixed;
   }
 
   .logo img {
