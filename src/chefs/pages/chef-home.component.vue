@@ -3,7 +3,7 @@
   <div class="chef-homeview-container">
     <div class="header">
       <h1 class="title">Mis recetas</h1>
-      <pv-button icon="pi pi-plus" severity="warning" rounded @click="addvisible = true" />
+      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
 
       <template>
         <div class="card flex justify-content-center">
@@ -157,12 +157,19 @@ img{
   justify-content: center;
 }
 
+.add-button{
+  margin-left: 20px;
+  align-self: center;
+  justify-self: center;
+  background-color: #FC4E4E;
+  border-color: #FC4E4E;
+  color: white;
+}
 .custom-button{
   background-color: #E06B43;
   border-color: #E06B43;
   border-radius: 20px;
 }
-
 
 .p-button:focus {
   outline: none;
