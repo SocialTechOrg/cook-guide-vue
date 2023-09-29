@@ -22,7 +22,7 @@
       <div class="form-group">
         <pv-input-text id="servings" placeholder="Porciones" v-model="recipe.servings" required/>
       </div>
-      <pv-button class="custom-button" type="submit" label="Agregar Receta" />
+      <pv-button class="custom-button" type="submit" label="Agregar Receta"/>
     </form>
   </div>
 
@@ -32,9 +32,6 @@
 import axios from "axios";
 
 export default {
-  props: {
-    recipe: Object,
-  },
   data() {
     return {
       recipe: {
@@ -94,6 +91,7 @@ export default {
 
 
 <style>
+
 .form-container {
   display: flex;
   justify-content: center;

@@ -1,6 +1,6 @@
 <template>
-  <div class="edit-form">
-    <form @submit.prevent="editRecipe">
+  <div class="edit-form-container">
+    <form @submit.prevent="editRecipe" class="edit-form">
       <div class="form-group">
         <pv-input-text id="name" placeholder="Nombre" v-model="recipe.name" required/>
       </div>
@@ -22,7 +22,7 @@
       <div class="form-group">
         <pv-input-text id="servings" placeholder="Porciones" v-model="recipe.servings" required/>
       </div>
-      <button type="submit" class="btn btn-primary">Editar Receta</button>
+      <pv-button class="custom-button" type="submit">Editar Receta</pv-button>
     </form>
   </div>
 </template>
@@ -70,5 +70,33 @@ export default {
 </script>
 
 <style>
+
+.edit-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-button {
+  background-color: #E06B43;
+  border-color: #E06B43;
+  border-radius: 20px;
+}
+
+.form-group {
+  width: 100%;
+}
+.add-form input,
+.add-form textarea {
+  width: 90%;
+  margin: 10px;
+}
 
 </style>

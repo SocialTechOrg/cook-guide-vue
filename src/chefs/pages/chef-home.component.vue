@@ -1,14 +1,13 @@
-
 <template>
   <div class="chef-homeview-container">
     <div class="header">
       <h1 class="title">Mis recetas</h1>
-      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
+      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="addvisible = true" />
 
       <template>
         <div class="card flex justify-content-center">
           <pv-dialog v-model:visible="addvisible" modal header="Agregar Receta" :style="{ width: '50vw' }">
-            <add-recipe-card></add-recipe-card>
+            <add-recipe-card :initialRecipe="recipe"></add-recipe-card>
           </pv-dialog>
         </div>
       </template>
@@ -83,7 +82,10 @@ export default {
       }
     },
     editRecipe(recipe) {
-      recipe.ingredients = recipe.ingredients.join(',');
+      if (Array.isArray(recipe.ingredients)) {
+        recipe.ingredients = recipe.ingredients.join(",");
+      }
+      this.recipeToEdit = { ...recipe };
       this.recipeToEdit = recipe;
       this.editvisible = true;
     },
@@ -99,7 +101,8 @@ export default {
   },
 };
 
-const visible = ref(false);
+const addvisible = ref(false);
+const editvisible = ref(false);
 
 </script>
 
