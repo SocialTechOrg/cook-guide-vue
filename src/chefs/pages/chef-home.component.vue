@@ -7,8 +7,16 @@
 
       <template>
         <div class="card flex justify-content-center">
-          <pv-dialog v-model:visible="visible" modal header="Agregar Receta" :style="{ width: '50vw' }">
+          <pv-dialog v-model:visible="addvisible" modal header="Agregar Receta" :style="{ width: '50vw' }">
             <add-recipe-card></add-recipe-card>
+          </pv-dialog>
+        </div>
+      </template>
+
+      <template>
+        <div class="card flex justify-content-center">
+          <pv-dialog v-model:visible="editvisible" modal header="Editar Receta" :style="{ width: '50vw' }">
+            <edit-recipe-card :recipe="recipeToEdit"></edit-recipe-card>
           </pv-dialog>
         </div>
       </template>
@@ -44,15 +52,19 @@
 import { ref } from "vue";
 import axios from 'axios';
 import AddRecipeCard from "@/chefs/components/add-recipe-card.component.vue";
+import EditRecipeCard from "@/chefs/components/edit-recipe-card.component.vue";
 export default {
   name: 'chef-home',
   components: {
-    AddRecipeCard
+    AddRecipeCard,
+    EditRecipeCard
   },
   data() {
     return {
-      recipes: [],
-      visible: false
+      recipes: [], // Almacenará las recetas obtenidas del servidor JSON
+      addvisible: false,
+      editvisible: false,
+      recipeToEdit: null,
     };
   },
   methods: {
@@ -70,9 +82,11 @@ export default {
             });
       }
     },
-    editRecipe(recipe){
-
-    }
+    editRecipe(recipe) {
+      recipe.ingredients = recipe.ingredients.join(',');
+      this.recipeToEdit = recipe;
+      this.editvisible = true;
+    },
   },
   mounted() {
     axios.get('http://localhost:3000/recipes')
@@ -161,6 +175,5 @@ img{
   outline: none;
   box-shadow: none;
 }
-
 
 </style>
