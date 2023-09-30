@@ -1,6 +1,5 @@
 <script setup>
-  import {ref} from "vue";
-  const currentPage = ref('inicio');
+
 </script>
 
 <template>
@@ -11,25 +10,25 @@
       </div>
       <ul class="menu">
         <li>
-          <a class="menu-icon" href="#" :class="{ 'selected-icon': currentPage === 'inicio' }" >
+          <a class="menu-icon" href="/chef-home">
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/home--v1.png" alt="home--v1"/>
             <span>Inicio</span>
           </a>
         </li>
         <li>
-          <a class="menu-icon" href="#" :class="{ 'selected-icon': currentPage === 'ofertas' }">
+          <a class="menu-icon" href="#">
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/discount.png" alt="discount"/>
             <span>Ofertas</span>
           </a>
         </li>
         <li>
-          <a class="menu-icon" href="#" :class="{ 'selected-icon': currentPage === 'recetas' }">
+          <a class="menu-icon" href="#" >
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/cutlery.png" alt="cutlery"/>
             <span>Recetas</span>
           </a>
         </li>
         <li>
-          <a class="menu-icon" href="#" :class="{ 'selected-icon': currentPage === 'planes' }">
+          <a class="menu-icon" href="#">
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/clipboard-list--v3.png" alt="clipboard-list--v3"/>
             <span>Planes</span>
           </a>
@@ -37,7 +36,7 @@
       </ul>
     </div>
     <div class="account">
-      <a class="menu-icon" href="#" :class="{ 'selected-icon': currentPage === 'cuenta' }">
+      <a class="menu-icon" href="/profile">
         <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/user--v1.png" alt="user--v1"/>
         <span>Cuenta</span>
       </a>
@@ -87,7 +86,8 @@
     text-align:center;
     align-items: center;
     font-family: 'Secular One', sans-serif;
-  }:hover{
+  }
+  .menu-icon:hover{
     color: #E06B43;
      }
 

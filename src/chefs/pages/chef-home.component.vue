@@ -29,7 +29,7 @@
               <img alt="user header" :src="recipe.image" />
             </template>
             <template #content>
-              <p>Tiempo estimado: {{ recipe.time }}</p>
+              <p>Tiempo estimado: {{ recipe.time }} minutos</p>
               <p>Porciones: {{ recipe.servings }}</p>
             </template>
             <template #footer>
@@ -91,8 +91,6 @@ export default {
     },
   },
   mounted() {
-    localStorage.setItem('userId', "5");
-
     this.userId = localStorage.getItem('userId');
 
     axios.get('http://localhost:3000/recipes')
