@@ -14,7 +14,7 @@
         "Sal y pimienta al gusto"
       ],
       "preparation": "En una sartén, dorar la carne molida con la cebolla y el ajo. Agregar la salsa de tomate y cocinar a fuego lento durante 20 minutos. Cocinar los spaghetti en agua hirviendo hasta que estén al dente. Servir la salsa sobre los spaghetti cocidos.",
-      "time": "45 minutos",
+      "time": 45,
       "servings": "4"
     },
     {
@@ -30,7 +30,7 @@
         "Queso parmesano rallado"
       ],
       "preparation": "Lavar y cortar la lechuga en trozos. Cortar las pechugas de pollo en tiras. Mezclar la lechuga con los crutones y la salsa César. Colocar las tiras de pollo encima y espolvorear con queso parmesano.",
-      "time": "30 minutos",
+      "time": 30,
       "servings": "2"
     },
     {
@@ -48,7 +48,7 @@
         "Sal y pimienta al gusto"
       ],
       "preparation": "En una olla grande, calentar el aceite de oliva y saltear la cebolla, el ajo y la zanahoria hasta que estén tiernos. Agregar los tomates y el caldo de pollo. Cocinar a fuego lento durante 30 minutos y luego triturar la sopa. Servir caliente.",
-      "time": "45 minutos",
+      "time": 45,
       "servings": "6"
     },
     {
@@ -65,7 +65,7 @@
         "Sal y pimienta al gusto"
       ],
       "preparation": "Extender la masa de pizza en un molde. Colocar rodajas de mozzarella y tomates cherry cortados por la mitad. Hornear a 220°C durante 15-20 minutos o hasta que la masa esté dorada. Agregar albahaca fresca, aceite de oliva, sal y pimienta al gusto antes de servir.",
-      "time": "30 minutos",
+      "time": 30,
       "servings": "4"
     },
     {
@@ -85,7 +85,7 @@
         "Jengibre encurtido"
       ],
       "preparation": "Cocinar el arroz para sushi y sazonarlo con una mezcla de vinagre de arroz, azúcar y sal. Extender una capa delgada de arroz sobre el alga nori. Colocar tiras de salmón encima. Enrollar el sushi y cortarlo en rodajas. Servir con salsa de soja, wasabi y jengibre encurtido.",
-      "time": "60 minutos",
+      "time": 60,
       "servings": "4"
     },
     {
@@ -105,7 +105,7 @@
         "Sal y pimienta al gusto"
       ],
       "preparation": "Formar la carne en hamburguesas y sazonar con sal y pimienta. Cocinar a la parrilla hasta que estén doradas. Armar las hamburguesas con pan, lechuga, tomate, cebolla, queso cheddar y las salsas.",
-      "time": "20 minutos",
+      "time": 20,
       "servings": "4"
     },
     {
@@ -124,7 +124,7 @@
         "Sal y pimienta al gusto"
       ],
       "preparation": "Cortar las pechugas de pollo en tiras y cocinarlas a la parrilla con sal y pimienta. Calentar las tortillas y armar los tacos con pollo, cebolla, cilantro, aguacate y salsa picante. Servir con limón.",
-      "time": "25 minutos",
+      "time": 25,
       "servings": "4"
     },
     {
@@ -142,7 +142,7 @@
         "Cacao en polvo para decorar"
       ],
       "preparation": "Derretir el chocolate y la mantequilla al baño maría. Batir los huevos con el azúcar y agregar la mezcla de chocolate. Incorporar la harina y la levadura. Hornear a 180°C durante 30-35 minutos. Decorar con cacao en polvo.",
-      "time": "60 minutos",
+      "time": 60,
       "servings": "8"
     },
     {
@@ -160,7 +160,7 @@
         "Cilantro picado"
       ],
       "preparation": "Calentar las tortillas de maíz y rellenar con el pollo desmenuzado. Enrollarlas y cubrir con salsa roja, queso rallado y crema agria. Hornear a 180°C durante 15 minutos. Servir con cebolla y cilantro picados.",
-      "time": "40 minutos",
+      "time": 40,
       "servings": "6"
     },
     {
@@ -177,7 +177,7 @@
         "Hielo"
       ],
       "preparation": "Colocar todos los ingredientes en una licuadora y mezclar hasta obtener una textura suave. Servir en vasos fríos y decorar con frutas adicionales si se desea.",
-      "time": "10 minutos",
+      "time": 10,
       "servings": "2"
     }
   ],
