@@ -6,7 +6,7 @@
   <nav class="menubar">
     <div class="top">
       <div class="logo">
-        <img src="public/assets/cookguide_logo.png" alt="Logo" />
+        <img src="/public/assets/cookguide_logo.png" alt="Logo" />
       </div>
       <ul class="menu">
         <li>
