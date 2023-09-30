@@ -91,8 +91,8 @@ export default {
   width: 100%;
 }
 
-.add-form input,
-.add-form textarea {
+.edit-form input,
+.edit-form textarea {
   width: 90%;
   margin: 10px;
 }
