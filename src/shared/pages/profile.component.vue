@@ -3,7 +3,7 @@ export default {
   name: 'profile',
   data(){
     return {
-      user:{
+      user:{ 
         'id': '',
         'type': '',
         'email': '',
