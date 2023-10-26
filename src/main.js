@@ -18,8 +18,6 @@ import InlineMessage from 'primevue/inlinemessage';
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 
-const app = createApp(App)
-
 createApp(App)
     .use(PrimeVue, { ripple: true })
     .use(router)
@@ -29,5 +27,5 @@ createApp(App)
     .component('pv-inline-message', InlineMessage)
     .component('pv-input-text', InputText)
     .component('pv-textarea', Textarea)
-    .use(router).mount('#app')
+    .mount('#app');
 

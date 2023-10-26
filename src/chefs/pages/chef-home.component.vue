@@ -1,14 +1,21 @@
-
 <template>
   <div class="chef-homeview-container">
     <div class="header">
       <h1 class="title">Mis recetas</h1>
-      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="visible = true" />
+      <pv-button class="add-button" icon="pi pi-plus" severity="warning" rounded @click="addvisible = true" />
 
       <template>
         <div class="card flex justify-content-center">
-          <pv-dialog v-model:visible="visible" modal header="Agregar Receta" :style="{ width: '50vw' }">
-            <add-recipe-card></add-recipe-card>
+          <pv-dialog v-model:visible="addvisible" modal header="Agregar Receta" :style="{ width: '50vw' }">
+            <add-recipe-card :initialRecipe="recipe"></add-recipe-card>
+          </pv-dialog>
+        </div>
+      </template>
+
+      <template>
+        <div class="card flex justify-content-center">
+          <pv-dialog v-model:visible="editvisible" modal header="Editar Receta" :style="{ width: '50vw' }">
+            <edit-recipe-card :recipe="recipeToEdit"></edit-recipe-card>
           </pv-dialog>
         </div>
       </template>
@@ -22,7 +29,7 @@
               <img alt="user header" :src="recipe.image" />
             </template>
             <template #content>
-              <p>Tiempo estimado: {{ recipe.time }}</p>
+              <p>Tiempo estimado: {{ recipe.time }} minutos</p>
               <p>Porciones: {{ recipe.servings }}</p>
             </template>
             <template #footer>
@@ -44,15 +51,19 @@
 import { ref } from "vue";
 import axios from 'axios';
 import AddRecipeCard from "@/chefs/components/add-recipe-card.component.vue";
+import EditRecipeCard from "@/chefs/components/edit-recipe-card.component.vue";
 export default {
   name: 'chef-home',
   components: {
-    AddRecipeCard
+    AddRecipeCard,
+    EditRecipeCard
   },
   data() {
     return {
       recipes: [],
-      visible: false
+      addvisible: false,
+      editvisible: false,
+      recipeToEdit: null,
     };
   },
   methods: {
@@ -70,22 +81,27 @@ export default {
             });
       }
     },
-    editRecipe(recipe){
-
-    }
+    editRecipe(recipe) {
+      if (Array.isArray(recipe.ingredients)) {
+        recipe.ingredients = recipe.ingredients.join(",");
+      }
+      this.recipeToEdit = { ...recipe };
+      this.recipeToEdit = recipe;
+      this.editvisible = true;
+    },
   },
   mounted() {
+    this.userId = localStorage.getItem('userId');
+
     axios.get('http://localhost:3000/recipes')
         .then(response => {
-          this.recipes = response.data;
+          this.recipes = response.data.filter(recipe => recipe.author === this.userId);
         })
         .catch(error => {
           console.error('Error al obtener las recetas:', error);
         });
   },
 };
-
-const visible = ref(false);
 
 </script>
 
@@ -125,6 +141,7 @@ const visible = ref(false);
   align-content: center;
   justify-content: center;
   text-align:center;
+  height: 100%;
 }
 
 .p-card{
@@ -161,6 +178,5 @@ img{
   outline: none;
   box-shadow: none;
 }
-
 
 </style>
