@@ -28,4 +28,3 @@ createApp(App)
     .component('pv-input-text', InputText)
     .component('pv-textarea', Textarea)
     .mount('#app');
-
