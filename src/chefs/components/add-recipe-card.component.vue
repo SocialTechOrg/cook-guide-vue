@@ -116,5 +116,4 @@ export default {
   width: 90%;
   margin: 10px;
 }
-
 </style>

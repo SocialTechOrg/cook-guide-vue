@@ -22,7 +22,7 @@
           </a>
         </li>
         <li>
-          <a class="menu-icon" href="#" >
+          <a class="menu-icon" href="/myrecipes-chef" >
             <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/cutlery.png" alt="cutlery"/>
             <span>Recetas</span>
           </a>
