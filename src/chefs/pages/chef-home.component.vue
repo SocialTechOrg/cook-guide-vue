@@ -34,7 +34,9 @@
             </template>
             <template #footer>
               <div class="buttons">
-                <pv-button class="custom-button" label="Ver receta" />
+                <router-link :to="'/view-recipe/' + recipe.id">
+                    <pv-button class="custom-button" label="Ver receta" />
+                </router-link>
                 <pv-button icon="pi pi-pencil" severity="secondary" text rounded  @click="editRecipe(recipe)" />
                 <pv-button icon="pi pi-trash" severity="danger" text rounded  @click="deleteRecipe(recipe)" />
               </div>

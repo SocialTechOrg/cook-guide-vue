@@ -16,7 +16,9 @@
               </template>
               <template #footer>
                 <div class="buttons">
-                  <pv-button class="custom-button" label="Ver receta" />
+                  <router-link :to="'/view-recipe/' + recipe.id">
+                    <pv-button class="custom-button" label="Ver receta" />
+                  </router-link>
                 </div>
               </template>
             </pv-card>
@@ -37,15 +39,11 @@
     data() {
       return {
         recipes: [],
-        addvisible: false,
-        editvisible: false,
-        recipeToEdit: null,
       };
     },
     methods: {
     },
     mounted() {
-  
       axios.get('http://localhost:3000/recipes')
           .then(response => {
             this.recipes = response.data;
@@ -106,8 +104,5 @@
     height: 80%;
     border-radius: 20px;
   }
-  
-
-
   
   </style>
