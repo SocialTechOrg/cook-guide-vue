@@ -18,9 +18,16 @@ import InlineMessage from 'primevue/inlinemessage';
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 
+import ToastService from "primevue/toastservice";
+
+
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 createApp(App)
     .use(PrimeVue, { ripple: true })
     .use(router)
+    .use(pinia)
+    .use(ToastService)
     .component('pv-button', Button)
     .component('pv-card', Card)
     .component('pv-dialog', Dialog)
