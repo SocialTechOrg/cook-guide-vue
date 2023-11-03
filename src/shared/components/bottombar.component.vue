@@ -1,25 +1,30 @@
 <script>
   export default {
     name: 'BottomBar',
+    methods: {
+      isActive(route) {
+        return this.$route.path === route;
+      },
+    },
   };
 </script>
 
 <template>
   <div class="bottom-bar">
-    <router-link to="/home" class="nav-button">
-      <pv-button icon="pi pi-home"/>
+    <router-link to="/home" class="nav-button" :class="{ active: isActive('/home') }">
+      <img src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/home--v1.png" alt="home--v1" :class="{ 'orange-icon': isActive('/home') }"/>
     </router-link>
-    <router-link to="/ruta2" class="nav-button">
-      <pv-button icon="pi pi-percentage"/>
+    <router-link to="/discount" class="nav-button" :class="{ active: isActive('/discount') }">
+      <img src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/discount.png" alt="home--v1" :class="{ 'orange-icon': isActive('/discount') }"/>
     </router-link>
-    <router-link to="/myrecipes-chef" class="nav-button">
-      <pv-button icon="pi pi-apple"/>
+    <router-link to="/myrecipes-chef" class="nav-button" :class="{ active: isActive('/myrecipes-chef') }">
+      <img src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/cutlery.png" alt="home--v1" :class="{ 'orange-icon': isActive('/myrecipes-chef') }"/>
     </router-link>
-    <router-link to="/ruta4" class="nav-button">
-      <pv-button icon="pi pi-book"/>
+    <router-link to="/clipboard-list" class="nav-button" :class="{ active: isActive('/clipboard-list') }">
+      <img src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/clipboard-list--v3.png" alt="home--v1" :class="{ 'orange-icon': isActive('/clipboard-list') }"/>
     </router-link>
-    <router-link to="/profile" class="nav-button">
-      <pv-button icon="pi pi-user"/>
+    <router-link to="/profile" class="nav-button" :class="{ active: isActive('/profile') }">
+      <img src="https://img.icons8.com/fluency-systems-regular/48/8C8C8C/user--v1.png" alt="home--v1" :class="{ 'orange-icon': isActive('/profile') }" />
     </router-link>
   </div>
 </template>
@@ -37,8 +42,9 @@
     left: 0;
     width: 100%;
     display: flex;
-    background-color: #E06B43;
-    color: #fff;
+    background-color: white;
+    color: #333;
+    box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.1);
   }
 
   .nav-button {
@@ -52,17 +58,20 @@
     padding: 10px 0;
   }
 
-  .nav-button i {
-    font-size: 24px;
-  }
-
   .nav-button span {
     font-size: 12px;
   }
-  .p-button{
+  .bottom-bar img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .orange-icon {
+    color: #E06B43;
+  }
+
+  .active {
     background-color: #E06B43;
-    color: #fff;
-    border-color: transparent;
   }
 }
 
