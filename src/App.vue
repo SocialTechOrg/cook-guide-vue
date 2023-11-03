@@ -1,11 +1,13 @@
 <script setup>
 import Menubar from "@/shared/components/menubar.component.vue";
+import BottomBar from "@/shared/components/bottombar.component.vue";
 
 </script>
 
 <template>
   <Menubar></Menubar>
   <router-view></router-view>
+  <BottomBar></BottomBar>
 </template>
 
 <style>

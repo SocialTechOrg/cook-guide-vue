@@ -95,4 +95,9 @@
     color: #E06B43; /* Change this to the desired color for selected icons */
   }
 
+  @media screen and (max-width: 425px){
+    .menubar{
+      display: none;
+    }
+  }
 </style>

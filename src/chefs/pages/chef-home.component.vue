@@ -138,13 +138,7 @@ export default {
   justify-content: center;
 }
 
-.card{
-  margin: 20px;
-  align-content: center;
-  justify-content: center;
-  text-align:center;
-  height: 100%;
-}
+
 
 .p-card{
   border-radius: 20px;
@@ -180,4 +174,5 @@ img{
   outline: none;
   box-shadow: none;
 }
+
 </style>

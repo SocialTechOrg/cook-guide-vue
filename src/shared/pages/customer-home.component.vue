@@ -104,5 +104,11 @@
     height: 80%;
     border-radius: 20px;
   }
+
+  @media screen and (max-width: 425px){
+    .chef-homeview-container{
+      padding-left: 0px;
+    }
+  }
   
   </style>
