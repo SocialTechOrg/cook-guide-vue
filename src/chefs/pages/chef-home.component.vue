@@ -114,7 +114,7 @@ export default {
   height: max-content;
   display: flex;
   flex-direction: column;
-  padding-left: 8%;
+  padding-left: 4%;
 }
 
 .header{

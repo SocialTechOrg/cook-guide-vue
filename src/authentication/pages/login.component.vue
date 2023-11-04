@@ -8,13 +8,19 @@ export default {
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-full">
-    <div class="w-full max-w-xl">
+  <div class="login-home">
+    <div>
       <login-form />
     </div>
   </div>
 </template>
 
 <style>
-
+.login-home{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
 </style>

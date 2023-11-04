@@ -10,8 +10,8 @@ const router= createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', redirect: '/chef-home' },
-        { path: '/register', component: Register },
-        { path: '/login', component: Login },
+        { path: '/register', component: Register},
+        { path: '/login', component: Login},
         { path: '/myrecipes-chef', component: ChefHomeComponent },
         { path: '/profile', component: ProfileComponent },
         { path: '/home', component: CustomerComponent},

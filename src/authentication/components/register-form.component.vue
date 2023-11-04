@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-white dark:bg-black shadow-xl rounded px-8 pt-6 pb-8">
-    <div class="flex flex-col space-y-6">
-      <div class="flex justify-center">
-        <img class="h-8 w-auto" src="" alt="Cook-Guide Logo">
+  <div class="card-register">
+    <div class="register-content">
+      <div class="register-logo">
+        <img src="public/assets/cookguide_logo.png" alt="Cook-Guide Logo">
       </div>
       <div>
-        <h1 class="text-center font-bold text-3xl">Registro</h1>
+        <h1 class="">Registro</h1>
       </div>
-      <div class="grid grid-cols-2 font-medium gap-8">
+      <div class="register-class">
         <button
             aria-label="Activate Student form"
             class="rounded py-3"
@@ -27,9 +27,9 @@
       </div>
       <form
           v-on:submit="register($event)"
-          class="flex flex-col space-y-3"
+          class="Register-Form"
       >
-        <div class="grid grid-cols-2 items-end gap-4">
+        <div class="Register-Form-Element">
           <div>
             <label for="name">Nombre</label>
             <pv-input-text
@@ -41,7 +41,7 @@
                 type="text"
             />
           </div>
-          <div>
+          <div class="Register-Form-Element">
             <label for="lastname">Apellido</label>
             <pv-input-text
                 required
@@ -53,7 +53,7 @@
             />
           </div>
         </div>
-        <div>
+        <div class="Register-Form-Element">
           <label for="email">Email</label>
           <pv-input-text
               required
@@ -64,7 +64,7 @@
               type="email"
           />
         </div>
-        <div class="grid grid-cols-2 items-end gap-4">
+        <div class="Register-Form-Element">
           <div>
             <label for="password">Contraseña</label>
             <pv-input-text
@@ -77,7 +77,7 @@
             />
           </div>
         </div>
-        <div class="grid grid-cols-2 items-end gap-4">
+        <div class="Register-Form-Element">
           <div>
             <label for="phone">Numero de Contacto</label>
             <pv-input-text
@@ -89,8 +89,8 @@
             />
           </div>
         </div>
-        <pv-button type="submit" label="Registro" outlined/>
-        <p class="text-center my-4">¿Ya tienes una cuenta?<router-link class="hover:font-medium text-primary" to="/login">Inicio se sesión</router-link></p>
+        <pv-button class="register-button" type="submit" label="Registro" outlined/>
+        <p class="Cuenta">¿Ya tienes una cuenta?<router-link to="/login">Inicio se sesión</router-link></p>
       </form>
     </div>
   </div>
@@ -174,5 +174,51 @@ export default {
 </script>
 
 <style >
+.card-register{
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2), -3px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #E06B43;
+}
+.register-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Register-Form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Register-Form-Element{
+  width: 100%;
+  margin: 10px 0;
+}
+.Cuenta{
+  display: flex;
+  justify-content: space-evenly;
+}
+.Cuenta a{
+  color: #b02500;
+  padding: 0 4px;
+}
 
+.register-logo img{
+  height: 240px;
+  width: 240px;
+}
+.register-logo{
+  margin-top: 20px;
+}
+.register-button{
+  border-color: #E06B43;
+  color: #ffffff;
+  background-color: #E06B43;
+  border-radius: 10px;
+}
 </style>

@@ -71,7 +71,7 @@
   }
 
   .active {
-    background-color: #E06B43;
+    border-bottom: 2px solid #E06B43;
   }
 }
 

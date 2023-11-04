@@ -1,5 +1,5 @@
 <template>
-    <div class="chef-homeview-container">
+    <div class="customer-homeview-container">
       <div class="header">
         <h1 class="title">Recetas</h1>
       </div>
@@ -58,12 +58,12 @@
   
   <style>
   
-  .chef-homeview-container{
+  .customer-homeview-container{
     width: 100%;
     height: max-content;
     display: flex;
     flex-direction: column;
-    padding-left: 8%;
+    padding-left: 4%;
   }
   
   .header{

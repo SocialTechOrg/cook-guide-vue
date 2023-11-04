@@ -1,11 +1,12 @@
 <script setup>
-import Menubar from "@/shared/components/menubar.component.vue";
+//import Menubar from "@/shared/components/menubar.component.vue";
 import BottomBar from "@/shared/components/bottombar.component.vue";
-
+import SideBar from "@/shared/components/sidebar.component.vue";
 </script>
 
+
 <template>
-  <Menubar></Menubar>
+  <SideBar></SideBar>
   <router-view></router-view>
   <BottomBar></BottomBar>
 </template>
@@ -25,7 +26,7 @@ body{
   padding: 0;
   margin: 0;
   display:flex;
-  flex-direction: row;
+  //flex-direction: row;
 }
 
 </style>

@@ -7,13 +7,19 @@ export default {
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-full">
-    <div class="w-full max-w-xl">
+  <div class="register-home">
+    <div>
       <register-form/>
     </div>
   </div>
 </template>
 
 <style >
-
+.register-home{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 </style>

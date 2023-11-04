@@ -17,6 +17,7 @@ import Dialog from 'primevue/dialog';
 import InlineMessage from 'primevue/inlinemessage';
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
+import SidebarComponent from "primevue/sidebar";
 
 import ToastService from "primevue/toastservice";
 
@@ -34,4 +35,5 @@ createApp(App)
     .component('pv-inline-message', InlineMessage)
     .component('pv-input-text', InputText)
     .component('pv-textarea', Textarea)
+    .component('pv-sidebar', SidebarComponent)
     .mount('#app');
