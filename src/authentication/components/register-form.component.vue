@@ -2,7 +2,7 @@
   <div class="card-register">
     <div class="register-content">
       <div class="register-logo">
-        <img src="public/assets/cookguide_logo.png" alt="Cook-Guide Logo">
+        <img src="/public/assets/cookguide_logo.png" alt="Cook-Guide Logo">
       </div>
       <div>
         <h1 class="">Registro</h1>

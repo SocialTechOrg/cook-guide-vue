@@ -2,7 +2,7 @@
   <form v-on:submit.prevent="login" class="card-login">
     <div class="card-components-login">
       <div class="card-components">
-        <img src="public/assets/cookguide_logo.png" alt="CookGuide Logo">
+        <img src="/public/assets/cookguide_logo.png" alt="CookGuide Logo">
       </div>
       <div class="card-components">
         <h1>Inicio de sesión</h1>

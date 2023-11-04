@@ -55,7 +55,7 @@ export default {
 .Button-Logo{
   background-color: #ffffff;
   border: none;
-  //box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);*/
   height: 100vh;
   position: fixed;
   top: 0;
