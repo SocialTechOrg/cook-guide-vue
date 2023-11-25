@@ -23,6 +23,14 @@
         <b>Preparacion:</b> <br> <p>{{ recipe.description }}</p>
   </div>
     </div>
+    <div class="recipe-actions">
+      <pv-button @click="goBack" class="action-button">
+        <i class="pi pi-arrow-left"></i> Retroceder
+      </pv-button>
+      <pv-button @click="placeOrder" class="action-button order-button">
+        <i class="pi pi-cart-plus"></i> Realizar Pedido
+      </pv-button>
+    </div>
   </div>
 </template>
   
@@ -54,6 +62,12 @@ export default {
         console.error(`Error al obtener los datos del ingrediente con ID ${ingredientId}:`, error);
         return 'Nombre Desconocido';
       }
+    },
+    goBack() {
+      this.$router.go(-1);
+    },
+    placeOrder() {
+      alert('Su pedido está siendo realizado...');
     }
   },
   async beforeMount() {
@@ -62,7 +76,7 @@ export default {
       const response = await axios.get(`http://localhost:5126/api/v1/recipes/${recipeId}`);
       this.recipe = response.data;
 
-      // Modificar los objetos de los ingredientes para incluir el nombre
+
       for (const ingredient of this.recipe.ingredients) {
         ingredient.name = await this.getIngredientName(ingredient.id);
       }
@@ -120,6 +134,38 @@ export default {
   .recipe-extension ul{
     padding-left: 20px;
   }
+
+  .recipe-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+
+  .action-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fc4e4e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .action-button:hover {
+    background-color: #e16e43;
+  }
+
+  .order-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  .order-button:hover {
+    background-color: #45a049;
+  }
+
+
+
   @media screen and (max-width: 800px){
     .recipe-content{
       flex-direction: column;
