@@ -41,6 +41,9 @@
       <div class="form-group">
         <pv-input-text id="num_portions" placeholder="Porciones" v-model="recipe.num_portions" required/>
       </div>
+      <div class="form-group">
+        <pv-input-text id="serving_price" placeholder="Precio por porción" v-model="recipe.serving_price" required/>
+      </div>
       <pv-button class="custom-button" type="submit" label="Agregar Receta"/>
     </form>
   </div>
@@ -60,9 +63,10 @@ export default {
         'ingredients': [{ id: '', quantity: '', measurement: '' }],
         'description': '',
         'preparationTime': '',
-        'num_portions': ''
+        'num_portions': '',
+        'serving_price': ''
       },
-      availableIngredients: [], // Asegúrate de tener esta variable en tu data
+      availableIngredients: [], 
     };
   },
   methods: {
@@ -79,7 +83,6 @@ export default {
         return;
       }
 
-      // Formatear los datos antes de enviarlos al servidor
       const formattedIngredients = this.recipe.ingredients.map(ingredient => ({
         id: ingredient.id,
         quantity: ingredient.quantity,
@@ -96,6 +99,7 @@ export default {
         description: this.recipe.description,
         preparationTime: this.recipe.preparationTime,
         num_portions: this.recipe.num_portions,
+        serving_price: this.recipe.serving_price
       };
 
       axios.post('http://localhost:5126/api/v1/recipes', recipeData)
@@ -104,7 +108,7 @@ export default {
           this.resetForm();
         })
         .catch(error => {
-          console.error('Error al enviar la receta:', error.response.data); // Muestra más detalles del error
+          console.error('Error al enviar la receta:', error.response.data); 
         });
     },
     resetForm() {
@@ -116,12 +120,12 @@ export default {
         ingredients: [{ id: '', quantity: '', measurement: '' }],
         description: '',
         preparationTime: '',
-        num_portions: ''
+        num_portions: '',
+        serving_price: ''
       };
     }
   },
   mounted() {
-    // Cargar la lista de ingredientes disponibles al iniciar el componente
     axios
       .get('http://localhost:5126/api/v1/ingredients')
       .then((response) => {

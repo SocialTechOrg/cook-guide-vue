@@ -2,12 +2,15 @@
   <div class="form-container">
     <form @submit.prevent="editRecipe" class="add-form">
       <div class="form-group">
+        <label for="ingredients">Nombre:</label>
         <pv-input-text id="name" placeholder="Nombre" v-model="recipe.name" required/>
       </div>
       <div class="form-group">
+        <label for="ingredients">Categoría:</label>
         <pv-input-text id="category" placeholder="Categoría" v-model="recipe.category" required/>
       </div>
       <div class="form-group">
+        <label for="ingredients">URL de Imagen:</label>
         <pv-input-text id="photoUrl" placeholder="URL de imagen" v-model="recipe.photoUrl" required/>
       </div>
 
@@ -31,13 +34,20 @@
       </div>
 
       <div class="form-group">
+        <label for="ingredients">Procedimiento:</label>
         <pv-textarea id="description" placeholder="Preparación" v-model="recipe.description" rows="5" cols="30" required/>
       </div>
       <div class="form-group">
+        <label for="ingredients">Tiempo de preparación:</label>
         <pv-input-text id="preparationTime" placeholder="Tiempo de preparación" v-model="recipe.preparationTime" required/>
       </div>
       <div class="form-group">
+        <label for="ingredients">Porciones:</label>
         <pv-input-text id="num_portions" placeholder="Porciones" v-model="recipe.num_portions" required/>
+      </div>
+      <div class="form-group">
+        <label for="ingredients">Precio por porción:</label>
+        <pv-input-text id="serving_price" placeholder="Precio por porción" v-model="recipe.serving_price" required/>
       </div>
       <pv-button class="custom-button" type="submit" label="Editar Receta"/>
     </form>
@@ -83,6 +93,7 @@ export default {
         description: formData.description,
         preparationTime: formData.preparationTime,
         num_portions: formData.num_portions,
+        serving_price: formData.serving_price
       };
 
       console.log('Data to be sent:', dataRecipe);

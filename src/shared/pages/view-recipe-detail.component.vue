@@ -27,20 +27,24 @@
       <pv-button @click="goBack" class="action-button">
         <i class="pi pi-arrow-left"></i> Retroceder
       </pv-button>
-      <pv-button @click="placeOrder" class="action-button order-button">
+      <pv-button @click="placeOrder()" class="action-button order-button">
         <i class="pi pi-cart-plus"></i> Realizar Pedido
       </pv-button>
     </div>
+    <order-form-component v-if="showOrderForm" @closeForm="showOrderForm = false" :recipe="recipe" />
   </div>
 </template>
   
 <script>
 import { ref, toHandlers } from "vue";
 import axios from 'axios';
+import orderFormComponent from "../components/order-form.component.vue";
 
 export default {
   name: 'RecipeDetail',
-  components: {},
+  components: {
+    orderFormComponent
+  },
   data() {
     return {
       recipe: {
@@ -51,6 +55,8 @@ export default {
       },
       authorName: '',
       authorPicture: '',
+      showOrderForm: false,
+
     };
   },
   methods: {
@@ -67,7 +73,7 @@ export default {
       this.$router.go(-1);
     },
     placeOrder() {
-      alert('Su pedido está siendo realizado...');
+      this.showOrderForm = true;
     }
   },
   async beforeMount() {
@@ -164,7 +170,59 @@ export default {
     background-color: #45a049;
   }
 
+  .form-group {
+    margin-bottom: 15px;
+  }
 
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .price-section {
+    margin-top: 20px;
+  }
+
+  .button-section {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  .submit-button,
+  .cancel-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+
+  .cancel-button {
+    background-color: #e16e43;
+    color: white;
+  }
+
+  .cancel-button:hover {
+    background-color: #d1553d;
+  }
 
   @media screen and (max-width: 800px){
     .recipe-content{
