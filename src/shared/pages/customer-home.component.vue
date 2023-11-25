@@ -4,19 +4,20 @@
         <h1 class="title">Recetas</h1>
       </div>
       <div class="recipe-cards">
-          <div class="card flex align-items-center justify-content-center" v-for="recipe in recipes" :key="recipe.id">
+          <div class="card flex align-items-center justify-content-center" v-for="recipe in recipes" :key="recipe.recipeId">
             <pv-card style="width: 25em">
               <template #header>
                 <h3>{{recipe.name}}</h3>
-                <img alt="user header" :src="recipe.image" />
+                <img alt="user header" :src="recipe.photoUrl" />
+                <p style="font-style: italic">{{ recipe.category }}</p>
               </template>
               <template #content>
-                <p>Tiempo estimado: {{ recipe.time }} minutos</p>
-                <p>Porciones: {{ recipe.servings }}</p>
+                <p>Tiempo estimado: {{ recipe.preparationTime }} minutos</p>
+                <p>Porciones: {{ recipe.num_portions }}</p>
               </template>
               <template #footer>
                 <div class="buttons">
-                  <router-link :to="'/view-recipe/' + recipe.id">
+                  <router-link :to="'/view-recipe/' + recipe.recipeId">
                     <pv-button class="custom-button" label="Ver receta" />
                   </router-link>
                 </div>
@@ -44,7 +45,7 @@
     methods: {
     },
     mounted() {
-      axios.get('http://localhost:3000/recipes')
+      axios.get('http://localhost:5126/api/v1/recipes')
           .then(response => {
             this.recipes = response.data;
           })

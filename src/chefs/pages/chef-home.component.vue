@@ -22,27 +22,28 @@
 
     </div>
     <div class="recipe-cards">
-        <div class="card flex align-items-center justify-content-center" v-for="recipe in recipes" :key="recipe.id">
-          <pv-card style="width: 25em">
-            <template #header>
-              <h3>{{recipe.name}}</h3>
-              <img alt="user header" :src="recipe.image" />
-            </template>
-            <template #content>
-              <p>Tiempo estimado: {{ recipe.time }} minutos</p>
-              <p>Porciones: {{ recipe.servings }}</p>
-            </template>
-            <template #footer>
-              <div class="buttons">
-                <router-link :to="'/view-recipe/' + recipe.id">
-                    <pv-button class="custom-button" label="Ver receta" />
-                </router-link>
-                <pv-button icon="pi pi-pencil" severity="secondary" text rounded  @click="editRecipe(recipe)" />
-                <pv-button icon="pi pi-trash" severity="danger" text rounded  @click="deleteRecipe(recipe)" />
-              </div>
-            </template>
-          </pv-card>
-        </div>
+      <div class="card flex align-items-center justify-content-center" v-for="recipe in recipes" :key="recipe.recipeId">
+        <pv-card style="width: 25em">
+          <template #header>
+            <h3>{{ recipe.name }}</h3>
+            <img alt="recipe" :src="recipe.photoUrl" />
+            <p style="font-style: italic">{{ recipe.category }}</p>
+          </template>
+          <template #content>
+            <p>Tiempo estimado: {{ recipe.preparationTime }} minutos</p>
+            <p>Porciones: {{ recipe.num_portions }}</p>
+          </template>
+          <template #footer>
+            <div class="buttons">
+              <router-link :to="'/view-recipe/' + recipe.recipeId">
+                <pv-button class="custom-button" label="Ver receta" />
+              </router-link>
+              <pv-button icon="pi pi-pencil" severity="secondary" text rounded @click="editRecipe(recipe)" />
+              <pv-button icon="pi pi-trash" severity="danger" text rounded @click="deleteRecipe(recipe)" />
+            </div>
+          </template>
+        </pv-card>
+      </div>
     </div>
   </div>
 
@@ -74,9 +75,9 @@ export default {
 
       if (confirmDelete) {
         axios
-            .delete(`http://localhost:3000/recipes/${recipe.id}`)
+            .delete(`http://localhost:5126/api/v1/recipes/${recipe.recipeId}`)
             .then(() => {
-              this.recipes = this.recipes.filter(r => r.id !== recipe.id);
+              this.recipes = this.recipes.filter(r => r.recipeId !== recipe.recipeId);
             })
             .catch(error => {
               console.error('Error al eliminar la receta:', error);
@@ -84,25 +85,22 @@ export default {
       }
     },
     editRecipe(recipe) {
-      if (Array.isArray(recipe.ingredients)) {
-        recipe.ingredients = recipe.ingredients.join(",");
-      }
-      this.recipeToEdit = { ...recipe };
       this.recipeToEdit = recipe;
       this.editvisible = true;
     },
   },
   mounted() {
-    this.userId = localStorage.getItem('userId');
+    this.user = JSON.parse(localStorage.getItem('user-data'));
 
-    axios.get('http://localhost:3000/recipes')
-        .then(response => {
-          this.recipes = response.data.filter(recipe => recipe.author === this.userId);
-        })
-        .catch(error => {
-          console.error('Error al obtener las recetas:', error);
-        });
-  },
+    axios.get('http://localhost:5126/api/v1/recipes')
+      .then(response => {
+        // Filter recipes based on the logged-in user's accountId
+        this.recipes = response.data.filter(recipe => recipe.accountId === this.user.id);
+      })
+      .catch(error => {
+        console.error('Error al obtener las recetas:', error);
+      });
+        },
 };
 
 </script>

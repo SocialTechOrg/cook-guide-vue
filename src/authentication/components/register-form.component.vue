@@ -30,48 +30,73 @@
           class="Register-Form"
       >
         <div class="Register-Form-Element">
-          <div>
-            <label for="name">Nombre</label>
-            <pv-input-text
+          <label for="firstname">First Name</label>
+          <pv-input-text
                 required
-                id="name"
+                id="firstname"
                 class="w-full"
-                v-model="name"
-                :placeholder="Nombre"
+                v-model="user.firstName"
+                placeholder="First Name"
                 type="text"
-            />
-          </div>
-          <div class="Register-Form-Element">
-            <label for="lastname">Apellido</label>
-            <pv-input-text
+          />
+        </div>
+
+        <div class="Register-Form-Element">
+          <label for="lastname">Last Name</label>
+          <pv-input-text
                 required
                 id="lastname"
                 class="w-full"
-                v-model="lastname"
-                :placeholder="Apellido"
+                v-model="user.lastName"
+                placeholder="Last Name"
                 type="text"
-            />
-          </div>
+          />
+        </div>    
+        
+        <div class="Register-Form-Element">
+          <label for="username">Username</label>
+          <pv-input-text
+              required
+              id="username"
+              class="w-full"
+              v-model="user.username"
+              placeholder="user123"
+              type="text"
+          />
         </div>
+
+        <div class="Register-Form-Element">
+          <label for="profilePicture">Photo URL</label>
+          <pv-input-text
+                required
+                id="profilePicture"
+                class="w-full"
+                v-model="user.profilePicture"
+                placeholder="www.picture.com"
+                type="text"
+          />
+        </div>
+
+
         <div class="Register-Form-Element">
           <label for="email">Email</label>
           <pv-input-text
               required
               id="email"
               class="w-full"
-              v-model="email"
+              v-model="user.email"
               placeholder="example@mail.com"
               type="email"
           />
         </div>
         <div class="Register-Form-Element">
           <div>
-            <label for="password">Contraseña</label>
+            <label for="password">Password</label>
             <pv-input-text
                 required
                 id="password"
                 class="w-full"
-                v-model="password"
+                v-model="user.password"
                 type="password"
                 placeholder="••••••••••••"
             />
@@ -79,13 +104,26 @@
         </div>
         <div class="Register-Form-Element">
           <div>
-            <label for="phone">Numero de Contacto</label>
+            <label for="phone">Phone</label>
             <pv-input-text
                 required
                 id="phone"
                 class="w-full"
-                v-model="phone"
+                v-model="user.phone"
                 type="number"
+            />
+          </div>
+        </div>
+        <div class="Register-Form-Element">
+          <div>
+            <label for="address">Address</label>
+            <pv-input-text
+                required
+                id="address"
+                class="w-full"
+                v-model="user.address"
+                type="text"
+                placeholder="Street 123"
             />
           </div>
         </div>
@@ -102,74 +140,52 @@ export default {
   name: "register-form",
   data(){
     return{
-      name: '',
-      lastname: '',
-      id: '',
-      type: '',
+      user: {
+      username: '',
+      firstName: '',
+      lastName: '',
       email: '',
-      user: '',
       password: '',
-      picture: '',
       phone: '',
-      birthday: '',
-      gender: '',
-      diet: '',
-      allergies: '',
-      preferences: '',
-      needs: '',
-      height: '',
-      weight: '',
+      address: '',
+      profilePicture: '',
+      userType: ''
+    },
+      isStudent: true,
       authApi: new AuthApiService(),
-      isStudent: true
     }
   },
   methods: {
     setType(type, estate){
       this.type = type;
       this.isStudent = estate;
+      this.user.userType = estate;
     },
     register(event) {
-      event.preventDefault();
-
-      this.authApi.signUp(
-          this.name,
-          this.lastname,
-          this.id,
-          this.type,
-          this.email,
-          this.user,
-          this.password,
-          this.picture,
-          this.phone,
-          this.birthday,
-          this.gender,
-          this.diet,
-          this.allergies,
-          this.preferences,
-          this.needs,
-          this.height,
-          this.weight
-      ).then(res => {
-        this.$toast.add({
-          severity: "success",
-          summary: "Success",
-          detail: `${res.data.message}. Redirecting to login...`,
-          life: 3000
-        });
-        setTimeout(() => {
-          this.$router.push("/login");
-        }, 3000);
-      }).catch(err => {
-        this.$toast.add({
-          severity: "error",
-          summary: "Error",
-          detail: err.response.data,
-          life: 4000
-        });
-      })
+          console.log(this.user)
+          this.authApi.signUp(this.user)
+          .then(res => {
+            this.$toast.add({
+              severity: "success",
+              summary: "Success",
+              detail: `${res.data.message}. Redirecting to login...`,
+              life: 3000
+            });
+            //setTimeout(() => {
+              //this.$router.push("/login");
+            //}, 3000);
+          })
+          .catch(err => {
+            this.$toast.add({
+              severity: "error",
+              summary: "Error",
+              detail: err.response.data,
+              life: 4000
+            });
+          });
+        }
     }
   }
-}
 
 </script>
 

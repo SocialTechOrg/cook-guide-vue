@@ -41,36 +41,37 @@ export default {
     return {
       email: '',
       password: '',
+      submitted: false,
       authApi: new AuthApiService(),
     };
   },
   methods: {
     async login() {
+      this.submitted= true;
+
       // Validar que se hayan ingresado el email y la contraseña
-      if (!this.email || !this.password) {
+      if (this.email && this.password) {
+        try {
+        // Llama a la función de autenticación para verificar las credenciales
+          this.authApi.login({email: this.email, password: this.password})
+          .then((response) => {
+            //Guarda los datos en local storage  
+            localStorage.setItem('user-data', JSON.stringify(response.data));
+            //Redirige
+            this.$router.push("/recipes");
+          })
+        } catch (error) {
+          console.error("Error al iniciar sesión:", error);
+          alert("Ocurrió un error al iniciar sesión. Por favor, inténtelo nuevamente.");
+        }
+      }
+      else{
         alert("Por favor ingrese su email y contraseña.");
         return;
-      }
-
-      try {
-        // Llama a la función de autenticación para verificar las credenciales
-        const user = await this.authApi.login(this.email, this.password);
-
-        // Si la autenticación es exitosa, puedes redirigir al usuario a otra página
-        if (user) {
-          // Redirige al usuario a una página de inicio, por ejemplo:
-          this.$router.push("/recipes");
-        } else {
-          alert("Credenciales incorrectas. Por favor, verifique su email y contraseña.");
-        }
-      } catch (error) {
-        console.error("Error al iniciar sesión:", error);
-        alert("Ocurrió un error al iniciar sesión. Por favor, inténtelo nuevamente.");
       }
     }
   }
 };
-
 </script>
 
 

@@ -1,44 +1,23 @@
 <script>
+import { all } from 'axios';
+
 export default {
   name: 'profile',
   data(){
     return {
-      user:{ 
-        'id': '',
-        'type': '',
-        'email': '',
-        'user': '',
-        'password': '',
-        'name': '',
-        'lastname': '',
-        'picture': '',
-        'phone': '',
-        'birthday':'',
-        'gender': '',
-        'diet': '',
-        'allergies': [],
-        'preferences': [],
-        'needs': [],
-        'height': '',
-        'weight': ''
-      },
-
+      user:{},
     }
+  },methods: {
+    logout() {
+      // Borra el user-data del localStorage
+      localStorage.removeItem('user-data');
+    },
   },
   mounted() {
-    localStorage.setItem('userId', "5");
-    this.userId = localStorage.getItem('userId');
-    fetch(`http://localhost:3000/users/${this.userId}`)
-        .then(response => response.json())
-        .then(data => {
-          this.user = data;
-        })
-        .catch(error => {
-          console.error('Error al obtener la información del usuario:', error);
-        });
+    this.user= JSON.parse(localStorage.getItem('user-data'));
+    console.log(this.user);
   }
 }
-
 </script>
 
 <template>
@@ -46,11 +25,11 @@ export default {
     <div class="profileview-container">
       <div class="profile-header">
         <pv-button class="custom-icon" icon="pi pi-calendar" text rounded/>
-        <h3>{{ user.name }} {{user.lastname}}</h3>
+        <h3>{{user.firstName}} {{user.lastName}}</h3>
         <pv-button class="custom-icon" icon="pi pi-bell" text rounded/>
       </div>
       <div class="user-info">
-        <img class="user-picture" src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNoZWZ8ZW58MHx8MHx8fDA%3D&w=1000&q=80" :alt="user.name" />
+        <img class="user-picture" :src="user.profilePicture" :alt="user.name" />
         <span>{{ user.email }}</span>
       </div>
       <div class="user-statistics">
@@ -101,9 +80,9 @@ export default {
           </a>
         </li>
         <li>
-          <a href="#" class="list-item">
+          <a href="/login" class="list-item" @click="logout">
             <i class="pi pi-power-off" style="font-size: 1.5rem; color:#FFAC4A"></i>
-            <span>Cerrar sesión </span>
+            <span> Cerrar sesión </span>
           </a>
         </li>
       </ul>
